@@ -23,7 +23,7 @@ class LatestBackPressureStrategy(Observer):
     @staticmethod
     def __on_next(self, message: any):
         self.wrapped_observer.on_next(message)
-        if self.__message_cache:
+        if self.__message_cache is not None:
             self.__function_runner(self, self.__on_next, self.__message_cache)
             self.__message_cache = None
         else:
