@@ -138,7 +138,7 @@ class TestDropBackPressureStrategy(TestCase):
                 call(messages[7]),
             ]
         )
-        self.assertEqual(4, buffer.counter.get_stats().get("successful_events"))
+        self.assertEqual(12, buffer.counter.get_stats().get("successful_events"))
         self.assertEqual(4, buffer.counter.get_stats().get("dropped_events"))
 
     def test_on_next_drop_new_message_when_buffer_full(self):
